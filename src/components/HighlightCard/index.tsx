@@ -1,5 +1,5 @@
-import React from "react";
-import { Container, Header, Title, Icon, Footer, Amount, LastTransaction } from "./styles";
+import React from 'react'
+import { Container, Header, Title, Icon, Footer, Amount, LastTransaction } from './styles'
 
 interface IProps {
   title: string
@@ -19,7 +19,7 @@ const HighlightCard = ({
   title,
   amount,
   lastTransaction
-}: IProps) => {
+}: IProps): JSX.Element => {
   return (
     <Container type={type}>
       <Header>
@@ -41,4 +41,4 @@ const HighlightCard = ({
   )
 }
 
-export { HighlightCard };
+export { HighlightCard }
