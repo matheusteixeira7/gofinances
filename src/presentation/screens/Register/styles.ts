@@ -33,10 +33,16 @@ const Form = styled.View`
 
 const Fields = styled.View``
 
+const TransactionTypes = styled.View`
+  flex-direction: row;
+  justify-content: space-between;
+`
+
 export {
   Container,
   Header,
   Title,
   Form,
-  Fields
+  Fields,
+  TransactionTypes
 }
