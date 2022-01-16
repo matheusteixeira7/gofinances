@@ -25,14 +25,18 @@ const Title = styled.Text`
 
 const Form = styled.View`
   flex: 1;
+  justify-content: space-between;
   width: 100%;
 
   padding: 24px;
 `
 
+const Fields = styled.View``
+
 export {
   Container,
   Header,
   Title,
-  Form
+  Form,
+  Fields
 }
