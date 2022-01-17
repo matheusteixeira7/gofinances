@@ -1,5 +1,6 @@
 import React from 'react'
 import { ThemeProvider } from 'styled-components/native'
+import { Modal } from 'react-native'
 import { StatusBar } from 'expo-status-bar'
 import AppLoading from 'expo-app-loading'
 import {
