@@ -10,21 +10,21 @@ import {
   Icon,
   Name,
   Separator,
-  Footer,
+  Footer
 } from './styles'
 
-interface Category {
+interface ICategoryProps {
   key: string
   name: string
 }
 
 interface IProps {
   category: string
-  setCategory: (category: Category) => void
+  setCategory: (category: ICategoryProps) => void
   closeSelectCategory: () => void
 }
 
-export const CategorySelect = ({
+export const CategorySelectButton = ({
   category,
   setCategory,
   closeSelectCategory
