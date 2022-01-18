@@ -3,11 +3,12 @@ import { Category, Container, Icon } from './styles'
 
 interface IProps {
   title: string
+  onPress: () => void
 }
 
-export const CategorySelect = ({ title }: IProps): JSX.Element => {
+export const CategorySelectButton = ({ title, onPress }: IProps): JSX.Element => {
   return (
-    <Container>
+    <Container onPress={onPress}>
       <Category>{title}</Category>
       <Icon name='chevron-down' />
     </Container>

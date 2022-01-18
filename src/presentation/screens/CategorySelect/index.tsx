@@ -19,12 +19,12 @@ interface ICategoryProps {
 }
 
 interface IProps {
-  category: string
+  category: ICategoryProps
   setCategory: (category: ICategoryProps) => void
   closeSelectCategory: () => void
 }
 
-export const CategorySelectButton = ({
+export const CategorySelect = ({
   category,
   setCategory,
   closeSelectCategory
@@ -49,7 +49,10 @@ export const CategorySelectButton = ({
       />
 
       <Footer>
-        <Button title='Selecionar' />
+        <Button
+          title='Selecionar'
+          onPress={closeSelectCategory}
+        />
       </Footer>
     </Container>
   )

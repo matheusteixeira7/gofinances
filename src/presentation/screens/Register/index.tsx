@@ -1,8 +1,11 @@
 import React, { useState } from 'react'
-import { CategorySelect } from '../../components/CategorySelect'
+import { Modal } from 'react-native'
+import { CategorySelectButton } from '../../components/CategorySelectButton'
+
 import { Button } from '../../components/Form/Button'
 import { Input } from '../../components/Form/Input'
 import { TransactionTypeButton } from '../../components/Form/TransactionTypeButton'
+import { CategorySelect } from '../CategorySelect'
 import {
   Container,
   Form,
@@ -14,6 +17,11 @@ import {
 
 const Register = (): JSX.Element => {
   const [transactionType, setTransactionType] = useState('')
+  const [categoryModalOpen, setCategoryModalOpen] = useState(false)
+  const [category, setCategory] = useState({
+    key: 'category',
+    name: 'Categoria'
+  })
 
   const handleTransactionTypeSelect = (type: 'up' | 'down'): void => {
     setTransactionType(type)
@@ -49,11 +57,22 @@ const Register = (): JSX.Element => {
             />
           </TransactionTypes>
 
-          <CategorySelect title='Categoria' />
+          <CategorySelectButton
+            title='Categoria'
+            onPress={() => setCategoryModalOpen(true)}
+          />
         </Fields>
 
         <Button title='Enviar' />
       </Form>
+
+      <Modal visible={categoryModalOpen}>
+        <CategorySelect
+          category={category}
+          setCategory={setCategory}
+          closeSelectCategory={() => setCategoryModalOpen(false)}
+        />
+      </Modal>
 
     </Container>
   )
