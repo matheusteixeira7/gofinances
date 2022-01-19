@@ -28,7 +28,7 @@ interface IProps {
   data: ITransactionCardProps
 }
 
-const TransactionCard = ({ data }: IProps): JSX.Element => {
+const TransactionCard = ({ data }: IProps) => {
   return (
     <>
       <Container>

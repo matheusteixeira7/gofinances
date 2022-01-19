@@ -19,7 +19,7 @@ const HighlightCard = ({
   title,
   amount,
   lastTransaction
-}: IProps): JSX.Element => {
+}: IProps) => {
   return (
     <Container type={type}>
       <Header>

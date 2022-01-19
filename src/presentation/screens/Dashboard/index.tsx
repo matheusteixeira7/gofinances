@@ -22,7 +22,7 @@ interface IDataListProps extends ITransactionCardProps {
   id: string
 }
 
-const Dashboard = (): JSX.Element => {
+const Dashboard = () => {
   const data: IDataListProps[] = [
     {
       id: '1',

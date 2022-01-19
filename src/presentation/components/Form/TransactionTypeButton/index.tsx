@@ -9,7 +9,7 @@ interface IProps extends TouchableOpacityProps {
   isActive: boolean
 }
 
-const TransactionTypeButton = ({ title, type, isActive, ...rest }: IProps): JSX.Element => {
+const TransactionTypeButton = ({ title, type, isActive, ...rest }: IProps) => {
   const icons = {
     up: 'arrow-up-circle',
     down: 'arrow-down-circle'

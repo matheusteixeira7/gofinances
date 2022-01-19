@@ -7,7 +7,7 @@ import {
 } from 'react-native'
 import { useForm } from 'react-hook-form'
 import * as Yup from 'yup'
-import { yupResolver } from '@hookform/resolvers/yup';
+import { yupResolver } from '@hookform/resolvers/yup'
 
 import { CategorySelectButton } from '../../components/CategorySelectButton'
 import { Button } from '../../components/Form/Button'
@@ -38,7 +38,7 @@ const schema = Yup.object().shape({
     .positive('O valor deve ser positivo')
 })
 
-const Register = (): JSX.Element => {
+const Register = () => {
   const [transactionType, setTransactionType] = useState('')
   const [categoryModalOpen, setCategoryModalOpen] = useState(false)
   const [category, setCategory] = useState({

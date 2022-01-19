@@ -28,7 +28,7 @@ export const CategorySelect = ({
   category,
   setCategory,
   closeSelectCategory
-}: IProps): JSX.Element => {
+}: IProps) => {
   const handleCategorySelect = (category: ICategoryProps): void => {
     setCategory(category)
   }

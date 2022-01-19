@@ -16,7 +16,7 @@ export const InputForm = ({
   name,
   error,
   ...rest
-}: IProps): JSX.Element => {
+}: IProps) => {
   return (
     <Container>
       <Controller

@@ -4,7 +4,7 @@ import { Container } from './styles'
 
 type IProps = TextInputProps
 
-const Input = ({ children, ...rest }: IProps): JSX.Element => {
+const Input = ({ children, ...rest }: IProps) => {
   return (
     <Container {...rest} />
   )
