@@ -1,6 +1,6 @@
+/* eslint-disable camelcase */
 import React from 'react'
 import { ThemeProvider } from 'styled-components/native'
-import { Modal } from 'react-native'
 import { StatusBar } from 'expo-status-bar'
 import AppLoading from 'expo-app-loading'
 import {
@@ -13,7 +13,7 @@ import {
 import theme from './src/presentation/styles/theme'
 import { Register } from './src/presentation/screens/Register'
 
-export default function App (): JSX.Element {
+export default function App () {
   const [fontsLoaded] = useFonts({
     Poppins_400Regular,
     Poppins_500Medium,
