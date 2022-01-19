@@ -1,6 +1,5 @@
 import React from 'react'
 import { Category, Container, Icon } from './styles'
-
 interface IProps {
   title: string
   onPress: () => void

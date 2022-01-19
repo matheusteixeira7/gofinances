@@ -29,6 +29,10 @@ export const CategorySelect = ({
   setCategory,
   closeSelectCategory
 }: IProps): JSX.Element => {
+  const handleCategorySelect = (category: ICategoryProps): void => {
+    setCategory(category)
+  }
+
   return (
     <Container>
       <Header>
@@ -38,14 +42,17 @@ export const CategorySelect = ({
       <FlatList
         data={categories}
         style={{ flex: 1, width: '100%' }}
+        keyExtractor={item => item.key}
         renderItem={({ item }) => (
-          <Category>
+          <Category
+            onPress={() => handleCategorySelect(item)}
+            isActive={category.key === item.key}
+          >
             <Icon name={item.icon} />
             <Name>{item.name}</Name>
           </Category>
         )}
         ItemSeparatorComponent={() => <Separator />}
-        keyExtractor={item => item.key}
       />
 
       <Footer>
