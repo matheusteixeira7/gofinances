@@ -94,7 +94,7 @@ const TransactionsList = styled(
   contentContainerStyle: {
     paddingBottom: getBottomSpace()
   }
-})`
+})<any>`
   flex: 1;
 `
 

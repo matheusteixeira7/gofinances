@@ -5,7 +5,7 @@ interface IProps {
   onPress: () => void
 }
 
-export const CategorySelectButton = ({ title, onPress }: IProps): JSX.Element => {
+export const CategorySelectButton = ({ title, onPress }: IProps) => {
   return (
     <Container onPress={onPress}>
       <Category>{title}</Category>
