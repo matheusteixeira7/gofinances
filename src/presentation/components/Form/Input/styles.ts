@@ -16,6 +16,4 @@ const Container = styled(TextInput)`
   margin-bottom: 8px;
 `
 
-export {
-  Container
-}
+export { Container }

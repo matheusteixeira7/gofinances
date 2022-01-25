@@ -1,6 +1,6 @@
+import { Feather } from '@expo/vector-icons'
 import { RFValue } from 'react-native-responsive-fontsize'
 import styled from 'styled-components/native'
-import { Feather } from '@expo/vector-icons'
 
 interface ICategoryProps {
   isActive: boolean
@@ -34,9 +34,7 @@ export const Category = styled.TouchableOpacity<ICategoryProps>`
   align-items: center;
 
   background-color: ${({ theme, isActive }) =>
-    isActive
-    ? theme.colors.secondary_light
-  : theme.colors.background};
+    isActive ? theme.colors.secondary_light : theme.colors.background};
 `
 
 export const Icon = styled(Feather)`

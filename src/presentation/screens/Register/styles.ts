@@ -40,11 +40,4 @@ const TransactionTypes = styled.View`
   margin: 8px 0 16px;
 `
 
-export {
-  Container,
-  Header,
-  Title,
-  Form,
-  Fields,
-  TransactionTypes
-}
+export { Container, Header, Title, Form, Fields, TransactionTypes }

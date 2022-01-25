@@ -1,5 +1,4 @@
 /* eslint-disable camelcase */
-import 'react-native-gesture-handler'
 import {
   useFonts,
   Poppins_400Regular,
@@ -28,8 +27,8 @@ export default function App() {
 
   return (
     <NavigationContainer>
+      <StatusBar style="light" />
       <ThemeProvider theme={theme}>
-        <StatusBar style="light" />
         <AppRoutes />
       </ThemeProvider>
     </NavigationContainer>

@@ -1,7 +1,10 @@
 import React from 'react'
-import { HighlightCard } from '../../components/HighlightCard'
-import { TransactionCard, ITransactionCardProps } from '../../components/TransactionCard'
 
+import { HighlightCard } from '../../components/HighlightCard'
+import {
+  TransactionCard,
+  ITransactionCardProps,
+} from '../../components/TransactionCard'
 import {
   Container,
   Header,
@@ -15,7 +18,8 @@ import {
   HighlightCards,
   Transactions,
   Title,
-  TransactionsList
+  TransactionsList,
+  LogoutButton,
 } from './styles'
 
 interface IDataListProps extends ITransactionCardProps {
@@ -31,9 +35,9 @@ const Dashboard = () => {
       amount: 'R$ 12.000,00',
       category: {
         name: 'Vendas',
-        icon: 'dollar-sign'
+        icon: 'dollar-sign',
       },
-      date: '13/04/2020'
+      date: '13/04/2020',
     },
     {
       id: '2',
@@ -42,9 +46,9 @@ const Dashboard = () => {
       amount: 'R$ 1.400,00',
       category: {
         name: 'Moradia',
-        icon: 'home'
+        icon: 'home',
       },
-      date: '13/04/2020'
+      date: '13/04/2020',
     },
     {
       id: '3',
@@ -53,10 +57,10 @@ const Dashboard = () => {
       amount: 'R$ 86,00',
       category: {
         name: 'Alimentação',
-        icon: 'coffee'
+        icon: 'coffee',
       },
-      date: '13/04/2020'
-    }
+      date: '13/04/2020',
+    },
   ]
 
   return (
@@ -64,34 +68,44 @@ const Dashboard = () => {
       <Header>
         <UserWrapper>
           <UserInfo>
-            <Photo source={{ uri: 'https://avatars.githubusercontent.com/u/62615871?v=4' }} />
+            <Photo
+              source={{
+                uri: 'https://avatars.githubusercontent.com/u/62615871?v=4',
+              }}
+            />
             <User>
               <UserGreeting>Olá,</UserGreeting>
               <UserName>Matheus</UserName>
             </User>
           </UserInfo>
-          <Icon name='power' />
+          <LogoutButton
+            onPress={() => {
+              console.log('change here')
+            }}
+          >
+            <Icon name="power" />
+          </LogoutButton>
         </UserWrapper>
       </Header>
 
       <HighlightCards>
         <HighlightCard
-          type='up'
-          title='Entradas'
-          amount='R$ 17.400,00'
-          lastTransaction='Última entrada dia 13 de abril'
+          type="up"
+          title="Entradas"
+          amount="R$ 17.400,00"
+          lastTransaction="Última entrada dia 13 de abril"
         />
         <HighlightCard
-          type='down'
-          title='Saídas'
-          amount='R$ 10.000,00'
-          lastTransaction='Última saída dia 03 de abril'
+          type="down"
+          title="Saídas"
+          amount="R$ 10.000,00"
+          lastTransaction="Última saída dia 03 de abril"
         />
         <HighlightCard
-          type='total'
-          title='Total'
-          amount='R$ 7.400,00'
-          lastTransaction='Última entrada dia 13 de abril'
+          type="total"
+          title="Total"
+          amount="R$ 7.400,00"
+          lastTransaction="Última entrada dia 13 de abril"
         />
       </HighlightCards>
 
@@ -101,7 +115,6 @@ const Dashboard = () => {
           data={data}
           keyExtractor={(item) => item.id}
           renderItem={({ item }) => <TransactionCard data={item} />}
-
         />
       </Transactions>
     </Container>

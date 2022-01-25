@@ -8,7 +8,7 @@ import {
   Category,
   Icon,
   CategoryName,
-  Date
+  Date,
 } from './styles'
 
 interface ICategory {

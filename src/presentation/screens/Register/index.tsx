@@ -1,16 +1,12 @@
-import React, { useState } from 'react'
-import {
-  Keyboard,
-  Modal,
-  TouchableWithoutFeedback,
-  Alert
-} from 'react-native'
-import { useForm } from 'react-hook-form'
-import * as Yup from 'yup'
 import { yupResolver } from '@hookform/resolvers/yup'
+import React, { useState } from 'react'
+import { useForm } from 'react-hook-form'
+import { Keyboard, Modal, TouchableWithoutFeedback, Alert } from 'react-native'
+import * as Yup from 'yup'
 
-import { CategorySelectButton } from '../../components/CategorySelectButton'
 import { Button } from '../../components/Form/Button'
+import { CategorySelectButton } from '../../components/Form/CategorySelectButton'
+import { InputForm } from '../../components/Form/InputForm'
 import { TransactionTypeButton } from '../../components/Form/TransactionTypeButton'
 import { CategorySelect } from '../CategorySelect'
 import {
@@ -19,9 +15,8 @@ import {
   Header,
   Title,
   Fields,
-  TransactionTypes
+  TransactionTypes,
 } from './styles'
-import { InputForm } from '../../components/Form/InputForm'
 
 interface IFormData {
   name: string
@@ -29,13 +24,10 @@ interface IFormData {
 }
 
 const schema = Yup.object().shape({
-  name: Yup
-    .string()
-    .required('Nome é obrigatório'),
-  amount: Yup
-    .number()
+  name: Yup.string().required('Nome é obrigatório'),
+  amount: Yup.number()
     .typeError('Preço é obrigatório')
-    .positive('O valor deve ser positivo')
+    .positive('O valor deve ser positivo'),
 })
 
 const Register = () => {
@@ -43,7 +35,7 @@ const Register = () => {
   const [categoryModalOpen, setCategoryModalOpen] = useState(false)
   const [category, setCategory] = useState({
     key: 'category',
-    name: 'Categoria'
+    name: 'Categoria',
   })
 
   const handleDismissKeyboard = (): void => {
@@ -67,7 +59,7 @@ const Register = () => {
       name: form.name,
       amount: form.amount,
       transactionType,
-      category: category.key
+      category: category.key,
     }
     console.log(data)
   }
@@ -75,15 +67,13 @@ const Register = () => {
   const {
     control,
     handleSubmit,
-    formState: { errors }
+    formState: { errors },
   } = useForm({
-    resolver: yupResolver(schema)
+    resolver: yupResolver(schema),
   })
 
   return (
-    <TouchableWithoutFeedback
-      onPress={handleDismissKeyboard}
-    >
+    <TouchableWithoutFeedback onPress={handleDismissKeyboard}>
       <Container>
         <Header>
           <Title>Cadastro</Title>
@@ -91,30 +81,30 @@ const Register = () => {
         <Form>
           <Fields>
             <InputForm
-              name='name'
+              name="name"
               control={control}
-              placeholder='Nome'
-              autoCapitalize='sentences'
+              placeholder="Nome"
+              autoCapitalize="sentences"
               autoCorrect={false}
               error={errors.name?.message}
             />
             <InputForm
-              name='amount'
+              name="amount"
               control={control}
-              placeholder='Preço'
-              keyboardType='numeric'
+              placeholder="Preço"
+              keyboardType="numeric"
               error={errors.amount?.message}
             />
             <TransactionTypes>
               <TransactionTypeButton
-                type='up'
-                title='Entrada'
+                type="up"
+                title="Entrada"
                 onPress={() => handleTransactionTypeSelect('up')}
                 isActive={transactionType === 'up'}
               />
               <TransactionTypeButton
-                type='down'
-                title='Saída'
+                type="down"
+                title="Saída"
                 onPress={() => handleTransactionTypeSelect('down')}
                 isActive={transactionType === 'down'}
               />
@@ -124,10 +114,7 @@ const Register = () => {
               onPress={() => setCategoryModalOpen(true)}
             />
           </Fields>
-          <Button
-            title='Enviar'
-            onPress={handleSubmit(handleRegister)}
-          />
+          <Button title="Enviar" onPress={handleSubmit(handleRegister)} />
         </Form>
         <Modal visible={categoryModalOpen}>
           <CategorySelect

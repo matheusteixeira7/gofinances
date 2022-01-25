@@ -1,5 +1,6 @@
 import React from 'react'
 import { FlatList } from 'react-native'
+
 import { categories } from '../../../utils/categories'
 import { Button } from '../../components/Form/Button'
 import {
@@ -10,7 +11,7 @@ import {
   Icon,
   Name,
   Separator,
-  Footer
+  Footer,
 } from './styles'
 
 interface ICategoryProps {
@@ -27,7 +28,7 @@ interface IProps {
 export const CategorySelect = ({
   category,
   setCategory,
-  closeSelectCategory
+  closeSelectCategory,
 }: IProps) => {
   const handleCategorySelect = (category: ICategoryProps): void => {
     setCategory(category)
@@ -42,7 +43,7 @@ export const CategorySelect = ({
       <FlatList
         data={categories}
         style={{ flex: 1, width: '100%' }}
-        keyExtractor={item => item.key}
+        keyExtractor={(item) => item.key}
         renderItem={({ item }) => (
           <Category
             onPress={() => handleCategorySelect(item)}
@@ -56,10 +57,7 @@ export const CategorySelect = ({
       />
 
       <Footer>
-        <Button
-          title='Selecionar'
-          onPress={closeSelectCategory}
-        />
+        <Button title="Selecionar" onPress={closeSelectCategory} />
       </Footer>
     </Container>
   )

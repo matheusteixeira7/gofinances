@@ -1,7 +1,7 @@
 import React from 'react'
-import { Container, Icon, Title } from './styles'
-
 import { TouchableOpacityProps } from 'react-native'
+
+import { Container, Icon, Title } from './styles'
 
 interface IProps extends TouchableOpacityProps {
   title: string
@@ -12,20 +12,14 @@ interface IProps extends TouchableOpacityProps {
 const TransactionTypeButton = ({ title, type, isActive, ...rest }: IProps) => {
   const icons = {
     up: 'arrow-up-circle',
-    down: 'arrow-down-circle'
+    down: 'arrow-down-circle',
   }
 
   return (
-    <Container
-      {...rest}
-      isActive={isActive}
-      type={type}
-    >
+    <Container {...rest} isActive={isActive} type={type}>
       <Icon name={icons[type]} type={type} />
 
-      <Title>
-        {title}
-      </Title>
+      <Title>{title}</Title>
     </Container>
   )
 }

@@ -1,6 +1,7 @@
-import styled from 'styled-components/native'
 import { Feather } from '@expo/vector-icons'
+import { TouchableOpacity } from 'react-native'
 import { RFValue } from 'react-native-responsive-fontsize'
+import styled from 'styled-components/native'
 
 interface IIconsProps {
   name: string
@@ -12,32 +13,32 @@ interface IContainerProps {
   type: 'up' | 'down'
 }
 
-export const Container = styled.TouchableOpacity<IContainerProps>`
+export const Container = styled(TouchableOpacity)<IContainerProps>`
   width: 48%;
+  padding: 16px;
+
   flex-direction: row;
   align-items: center;
+  justify-content: center;
 
   border: 1.5px solid;
   border-color: ${({ theme, isActive }) =>
-    isActive
-    ? theme.colors.transparent
-  : theme.colors.text};
+    isActive ? theme.colors.transparent : theme.colors.text};
   border-radius: 5px;
-  padding: 16px;
-  justify-content: center;
 
   background-color: ${({ theme, isActive, type }) =>
     isActive && type === 'up'
-    ? theme.colors.success_light
-    : isActive && type === 'down'
-    ? theme.colors.attention_light
-  : theme.colors.transparent};
+      ? theme.colors.success_light
+      : isActive && type === 'down'
+      ? theme.colors.attention_light
+      : theme.colors.transparent};
 `
 
 export const Icon = styled(Feather)<IIconsProps>`
   font-size: ${RFValue(24)}px;
   margin-right: 12px;
-  color: ${({ theme, type }) => (type === 'up' ? theme.colors.success : theme.colors.attention)};
+  color: ${({ theme, type }) =>
+    type === 'up' ? theme.colors.success : theme.colors.attention};
 `
 
 export const Title = styled.Text`

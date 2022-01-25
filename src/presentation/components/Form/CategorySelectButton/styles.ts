@@ -1,10 +1,10 @@
-import { RFValue } from 'react-native-responsive-fontsize'
-import styled from 'styled-components/native'
 import { Feather } from '@expo/vector-icons'
 import { TouchableOpacity } from 'react-native'
+import { RFValue } from 'react-native-responsive-fontsize'
+import styled from 'styled-components/native'
 
 export const Container = styled(TouchableOpacity).attrs({
-  activeOpacity: 0.6
+  activeOpacity: 0.6,
 })`
   background-color: ${({ theme }) => theme.colors.shape};
   flex-direction: row;
@@ -22,6 +22,6 @@ export const Category = styled.Text`
 `
 
 export const Icon = styled(Feather)`
- font-size: ${RFValue(20)}px;
- color: ${({ theme }) => theme.colors.text_dark};
+  font-size: ${RFValue(20)}px;
+  color: ${({ theme }) => theme.colors.text_dark};
 `

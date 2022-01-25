@@ -1,5 +1,14 @@
 import React from 'react'
-import { Container, Header, Title, Icon, Footer, Amount, LastTransaction } from './styles'
+
+import {
+  Container,
+  Header,
+  Title,
+  Icon,
+  Footer,
+  Amount,
+  LastTransaction,
+} from './styles'
 
 interface IProps {
   title: string
@@ -11,31 +20,20 @@ interface IProps {
 const icon = {
   up: 'arrow-up-circle',
   down: 'arrow-down-circle',
-  total: 'dollar-sign'
+  total: 'dollar-sign',
 }
 
-const HighlightCard = ({
-  type,
-  title,
-  amount,
-  lastTransaction
-}: IProps) => {
+const HighlightCard = ({ type, title, amount, lastTransaction }: IProps) => {
   return (
     <Container type={type}>
       <Header>
-        <Title type={type}>
-          {title}
-        </Title>
+        <Title type={type}>{title}</Title>
         <Icon name={icon[type]} type={type} />
       </Header>
 
       <Footer>
-        <Amount type={type}>
-          {amount}
-        </Amount>
-        <LastTransaction type={type}>
-          {lastTransaction}
-        </LastTransaction>
+        <Amount type={type}>{amount}</Amount>
+        <LastTransaction type={type}>{lastTransaction}</LastTransaction>
       </Footer>
     </Container>
   )
