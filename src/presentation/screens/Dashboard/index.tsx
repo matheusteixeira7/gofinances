@@ -78,13 +78,7 @@ const Dashboard = () => {
               <UserName>Matheus</UserName>
             </User>
           </UserInfo>
-          <LogoutButton
-            onPress={() => {
-              console.log('change here')
-            }}
-          >
-            <Icon name="power" />
-          </LogoutButton>
+          <Icon name="power" />
         </UserWrapper>
       </Header>
 
