@@ -19,7 +19,6 @@ import {
   Transactions,
   Title,
   TransactionsList,
-  LogoutButton,
 } from './styles'
 
 interface IDataListProps extends ITransactionCardProps {
