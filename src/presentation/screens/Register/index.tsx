@@ -70,7 +70,7 @@ const Register = () => {
     Keyboard.dismiss()
   }
 
-  const handleTransactionTypeSelect = (type: 'up' | 'down'): void => {
+  const handleTransactionTypeSelect = (type: 'positive' | 'negative'): void => {
     setTransactionType(type)
   }
 
@@ -95,7 +95,7 @@ const Register = () => {
       id: String(uuid.v4()),
       name: form.name,
       amount: form.amount,
-      transactionType,
+      type: transactionType,
       category: category.key,
       date: new Date(),
     }
@@ -160,14 +160,14 @@ const Register = () => {
                 <TransactionTypeButton
                   type="up"
                   title="Entrada"
-                  onPress={() => handleTransactionTypeSelect('up')}
-                  isActive={transactionType === 'up'}
+                  onPress={() => handleTransactionTypeSelect('positive')}
+                  isActive={transactionType === 'positive'}
                 />
                 <TransactionTypeButton
                   type="down"
                   title="Saída"
-                  onPress={() => handleTransactionTypeSelect('down')}
-                  isActive={transactionType === 'down'}
+                  onPress={() => handleTransactionTypeSelect('negative')}
+                  isActive={transactionType === 'negative'}
                 />
               </TransactionTypes>
               <CategorySelectButton
