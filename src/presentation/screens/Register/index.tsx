@@ -1,12 +1,14 @@
 import { yupResolver } from '@hookform/resolvers/yup'
 import AsyncStorage from '@react-native-async-storage/async-storage'
+import { useNavigation } from '@react-navigation/native'
 import React, { useEffect, useState } from 'react'
 import { useForm } from 'react-hook-form'
-import { Keyboard, Modal, Alert, StyleSheet } from 'react-native'
+import { Alert, Keyboard, Modal, StyleSheet } from 'react-native'
 import {
   gestureHandlerRootHOC,
   TouchableWithoutFeedback,
 } from 'react-native-gesture-handler'
+import uuid from 'react-native-uuid'
 import * as Yup from 'yup'
 
 import { Button } from '../../components/Form/Button'
@@ -16,10 +18,10 @@ import { TransactionTypeButton } from '../../components/Form/TransactionTypeButt
 import { CategorySelect } from '../CategorySelect'
 import {
   Container,
+  Fields,
   Form,
   Header,
   Title,
-  Fields,
   TransactionTypes,
 } from './styles'
 
@@ -43,6 +45,17 @@ const Register = () => {
   const [category, setCategory] = useState({
     key: 'category',
     name: 'Categoria',
+  })
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const navigation = useNavigation()
+
+  const {
+    control,
+    handleSubmit,
+    reset,
+    formState: { errors },
+  } = useForm({
+    resolver: yupResolver(schema),
   })
 
   const ButtonWithHoc = gestureHandlerRootHOC(() => (
@@ -78,28 +91,31 @@ const Register = () => {
       return Alert.alert('selecione a categoria')
     }
 
-    const data = {
+    const newTransaction = {
+      id: String(uuid.v4()),
       name: form.name,
       amount: form.amount,
       transactionType,
       category: category.key,
+      date: new Date(),
     }
 
     try {
-      await AsyncStorage.setItem(dataKey, JSON.stringify(data))
+      const data = await AsyncStorage.getItem(dataKey)
+      const currentData = data ? JSON.parse(data) : []
+
+      const dataFormatted = [...currentData, newTransaction]
+
+      await AsyncStorage.setItem(dataKey, JSON.stringify(dataFormatted))
+
+      reset()
+      setTransactionType('')
+      setCategory({ key: 'category', name: 'Categoria' })
+      navigation.navigate('Listagem' as never)
     } catch (error) {
       console.log(error)
-      Alert.alert('Erro ao registrar transação')
     }
   }
-
-  const {
-    control,
-    handleSubmit,
-    formState: { errors },
-  } = useForm({
-    resolver: yupResolver(schema),
-  })
 
   useEffect(() => {
     const loadData = async () => {
