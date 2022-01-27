@@ -1,9 +1,9 @@
 import React from 'react'
-import { TouchableOpacityProps } from 'react-native'
+import { RectButtonProps } from 'react-native-gesture-handler'
 
 import { Container, Icon, Title } from './styles'
 
-interface IProps extends TouchableOpacityProps {
+interface IProps extends RectButtonProps {
   title: string
   type: 'up' | 'down'
   isActive: boolean
