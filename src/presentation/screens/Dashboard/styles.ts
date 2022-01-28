@@ -97,6 +97,7 @@ export const TransactionsList = styled(
   contentContainerStyle: {
     paddingBottom: getBottomSpace(),
   },
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
 })<any>`
   flex: 1;
 `
