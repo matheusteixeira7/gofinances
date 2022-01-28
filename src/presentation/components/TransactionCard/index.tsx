@@ -37,7 +37,7 @@ const TransactionCard = ({ data }: IProps) => {
       <Container>
         <Title>{data.name}</Title>
         <Amount type={data.type}>
-          {data.type === 'positive' ? '+ ' : '- '}
+          {data.type === 'positive' ? '' : '- '}
           {data.amount}
         </Amount>
 

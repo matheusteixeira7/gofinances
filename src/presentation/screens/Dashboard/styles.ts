@@ -9,12 +9,12 @@ import styled from 'styled-components/native'
 
 import { IDataListProps } from '.'
 
-const Container = styled.View`
+export const Container = styled.View`
   flex: 1;
   background-color: ${({ theme }) => theme.colors.background};
 `
 
-const Header = styled.View`
+export const Header = styled.View`
   width: 100%;
   height: ${RFPercentage(42)}px;
   background-color: ${({ theme }) => theme.colors.primary};
@@ -24,7 +24,7 @@ const Header = styled.View`
   flex-direction: row;
 `
 
-const UserWrapper = styled.View`
+export const UserWrapper = styled.View`
   width: 100%;
 
   padding: 0 24px;
@@ -35,39 +35,39 @@ const UserWrapper = styled.View`
   align-items: center;
 `
 
-const UserInfo = styled.View`
+export const UserInfo = styled.View`
   flex-direction: row;
   align-items: center;
 `
 
-const Photo = styled.Image`
+export const Photo = styled.Image`
   width: ${RFValue(48)}px;
   height: ${RFValue(48)}px;
   border-radius: 48px;
 `
 
-const User = styled.View`
+export const User = styled.View`
   margin-left: 17px;
 `
 
-const UserGreeting = styled.Text`
+export const UserGreeting = styled.Text`
   color: ${({ theme }) => theme.colors.shape};
   font-size: ${RFValue(18)}px;
   font-family: ${({ theme }) => theme.fonts.regular};
 `
 
-const UserName = styled.Text`
+export const UserName = styled.Text`
   color: ${({ theme }) => theme.colors.shape};
   font-size: ${RFValue(18)}px;
   font-family: ${({ theme }) => theme.fonts.bold};
 `
 
-const Icon = styled(Feather)`
+export const Icon = styled(Feather)`
   color: ${({ theme }) => theme.colors.secondary};
   font-size: ${RFValue(24)}px;
 `
 
-const HighlightCards = styled.ScrollView.attrs({
+export const HighlightCards = styled.ScrollView.attrs({
   horizontal: true,
   showsHorizontalScrollIndicator: false,
   contentContainerStyle: { paddingHorizontal: 24 },
@@ -77,20 +77,20 @@ const HighlightCards = styled.ScrollView.attrs({
   margin-top: ${RFPercentage(24)}px;
 `
 
-const Transactions = styled.View`
+export const Transactions = styled.View`
   flex: 1;
   padding: 0 24px;
   margin-top: ${RFPercentage(17)}px;
 `
 
-const Title = styled.Text`
+export const Title = styled.Text`
   font-size: ${RFValue(18)}px;
   font-family: ${({ theme }) => theme.fonts.regular};
   color: ${({ theme }) => theme.colors.text_dark};
   margin-bottom: 16px;
 `
 
-const TransactionsList = styled(
+export const TransactionsList = styled(
   FlatList as new () => FlatList<IDataListProps>
 ).attrs({
   showsVerticalScrollIndicator: false,
@@ -100,19 +100,8 @@ const TransactionsList = styled(
 })<any>`
   flex: 1;
 `
-
-export {
-  Container,
-  Header,
-  UserWrapper,
-  UserInfo,
-  Photo,
-  User,
-  UserGreeting,
-  UserName,
-  Icon,
-  HighlightCards,
-  Transactions,
-  Title,
-  TransactionsList,
-}
+export const LoadContainer = styled.View`
+  flex: 1;
+  align-items: center;
+  justify-content: center;
+`
