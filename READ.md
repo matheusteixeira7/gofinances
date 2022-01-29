@@ -1,0 +1,1 @@
+Projeto realizado para o Bootcamp Ignite de React Native da Rocketseat.
